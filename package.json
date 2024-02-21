@@ -1,0 +1,27 @@
+{
+  "name": "mono-portfolio-pnpm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm  --filter \"./**\" dev",
+    "build": "pnpm  --filter \"./**\" build",
+    "fix": "biome check --apply .",
+    "orval": "orval --config ./orval.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@8.15.3",
+  "engines": {
+    "pnpm": ">=8.15.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "@faker-js/faker": "8.4.1",
+    "lefthook": "1.6.1",
+    "msw": "2.2.1",
+    "orval": "6.25.0",
+    "turbo": "^1.12.4"
+  }
+}
