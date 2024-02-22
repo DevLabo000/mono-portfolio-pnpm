@@ -11,6 +11,7 @@
     "sakamoto66.vscode-paste-image",
     "bradlc.vscode-tailwindcss",
     "redhat.vscode-yaml",
-    "arjun.swagger-viewer"
+    "arjun.swagger-viewer",
+    "davidanson.vscode-markdownlint"
   ]
 }
