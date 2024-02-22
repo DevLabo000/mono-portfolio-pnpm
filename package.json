@@ -2,16 +2,13 @@
   "name": "mono-portfolio-pnpm",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "pnpm  --filter \"./**\" dev",
+    "dev": "turbo dev",
     "build": "turbo build",
     "fix": "biome check --apply ./",
     "orval": "orval --config ./orval.config.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "packageManager": "pnpm@8.15.3",
   "engines": {
     "pnpm": ">=8.15.3"
