@@ -9,8 +9,7 @@
       "./apps/hono/.wrangler",
       "./apps/document/.vitepress/",
       "./apps/vite/dist/",
-      "./apps/vite/src/routeTree.gen.ts",
-      "./apps/vite/src/lib/swr-client/"
+      "./apps/vite/src/routeTree.gen.ts"
     ]
   },
   "linter": {
@@ -36,8 +35,7 @@
       "./apps/hono/.wrangler",
       "./apps/document/.vitepress/",
       "./apps/vite/dist/",
-      "./apps/vite/src/routeTree.gen.ts",
-      "./apps/vite/src/lib/swr-client/"
+      "./apps/vite/src/routeTree.gen.ts"
     ],
     "enabled": true,
     "indentStyle": "space",

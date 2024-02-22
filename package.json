@@ -7,7 +7,7 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "fix": "biome check --apply ./",
-    "orval": "orval --config ./orval.config.js"
+    "orval": "orval --config ./orval.config.js && npm run fix"
   },
   "packageManager": "pnpm@8.15.3",
   "engines": {
