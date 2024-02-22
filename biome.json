@@ -3,8 +3,12 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": ["./apps/hono/.wrangler", "./apps/document/.vitepress/"]
+  },
   "linter": {
-    "ignore": ["./apps/hono/.wrangler"],
+    "ignore": ["./apps/hono/.wrangler", "./apps/document/.vitepress/", "./apps/vite/dist/"],
     "enabled": true,
     "rules": {
       "recommended": true,
@@ -16,6 +20,7 @@
     }
   },
   "formatter": {
+    "ignore": ["./apps/hono/.wrangler", "./apps/document/.vitepress/"],
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
@@ -25,7 +30,8 @@
   "javascript": {
     "formatter": {
       "enabled": true,
-      "quoteStyle": "single"
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single"
     }
   }
 }
