@@ -5,14 +5,21 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["./apps/hono/.wrangler", "./apps/document/.vitepress/"]
+    "ignore": [
+      "./apps/hono/.wrangler",
+      "./apps/document/.vitepress/",
+      "./apps/vite/dist/",
+      "./apps/vite/src/routeTree.gen.ts",
+      "./apps/vite/src/lib/swr-client/"
+    ]
   },
   "linter": {
     "ignore": [
       "./apps/hono/.wrangler",
       "./apps/document/.vitepress/",
       "./apps/vite/dist/",
-      "./apps/vite/src/routeTree.gen.ts"
+      "./apps/vite/src/routeTree.gen.ts",
+      "./apps/vite/src/lib/swr-client/"
     ],
     "enabled": true,
     "rules": {
@@ -29,7 +36,8 @@
       "./apps/hono/.wrangler",
       "./apps/document/.vitepress/",
       "./apps/vite/dist/",
-      "./apps/vite/src/routeTree.gen.ts"
+      "./apps/vite/src/routeTree.gen.ts",
+      "./apps/vite/src/lib/swr-client/"
     ],
     "enabled": true,
     "indentStyle": "space",

@@ -1,0 +1,162 @@
+openapi: 3.0.0
+info:
+  title: ToDo API
+  description: ToDoアプリのAPI仕様書
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+paths:
+  /todos:
+    get:
+      summary: ToDo一覧を取得
+      tags:
+        - todo
+      responses:
+        "200":
+          description: 成功。ToDo一覧を取得
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: ToDoのID
+                      uniqueItems: true
+                    title:
+                      type: string
+                      description: ToDoのタイトル
+                    date:
+                      type: string
+                      format: date
+                      description: ToDoの日付
+                    nice:
+                      type: boolean
+                      description: ToDoが"いいね"されたかどうか
+                    done:
+                      type: boolean
+                      description: ToDoが完了したかどうか
+                  required:
+                    - id
+                    - title
+                    - date
+                    - nice
+                    - done
+        "500":
+          description: サーバーエラー。サーバー側で処理できませんでした。
+        "502":
+          description: 不正なゲートウェイ。アップストリームサーバーから無効なレスポンスを受け取りました。
+        "503":
+          description: サービス利用不可。サービスが一時的に利用不可です。
+    post:
+      summary: 新しいToDoを作成する
+      tags:
+        - todo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ToDoのタイトル
+                date:
+                  type: string
+                  format: date
+                  nullable: true
+                  description: ToDoの日付
+                nice:
+                  type: boolean
+                  nullable: true
+                  description: ToDoが"いいね"されたかどうか
+                done:
+                  type: boolean
+                  nullable: true
+                  description: ToDoが完了したかどうか
+              required:
+                - title
+                - date
+                - nice
+                - done
+      responses:
+        "201":
+          description: 成功。ToDoが作成されました。
+        "500":
+          description: サーバーエラー。サーバー側で処理できませんでした。
+        "502":
+          description: 不正なゲートウェイ。アップストリームサーバーから無効なレスポンスを受け取りました。
+        "503":
+          description: サービス利用不可。サービスが一時的に利用不可です。
+  /todos/{id}:
+    patch:
+      summary: ToDoを更新する
+      tags:
+        - todo
+      parameters:
+        - name: id
+          in: path
+          description: 更新するToDoのID
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ToDoのタイトル
+                date:
+                  type: string
+                  format: date
+                  nullable: true
+                  description: ToDoの日付
+                nice:
+                  type: boolean
+                  nullable: true
+                  description: ToDoが"いいね"されたかどうか
+                done:
+                  type: boolean
+                  nullable: true
+                  description: ToDoが完了したかどうか
+              required:
+                - title
+                - date
+                - nice
+                - done
+      responses:
+        "200":
+          description: 成功。ToDoが更新されました。
+        "500":
+          description: サーバーエラー。サーバー側で処理できませんでした。
+        "502":
+          description: 不正なゲートウェイ。アップストリームサーバーから無効なレスポンスを受け取りました。
+        "503":
+          description: サービス利用不可。サービスが一時的に利用不可です。
+    delete:
+      summary: ToDoを削除する
+      tags:
+        - todo
+      parameters:
+        - name: id
+          in: path
+          description: 削除するToDoのID
+          required: true
+          schema:
+            type: number
+      responses:
+        "204":
+          description: 成功。ToDoが削除されました。
+        "500":
+          description: サーバーエラー。サーバー側で処理できませんでした。
+        "502":
+          description: 不正なゲートウェイ。アップストリームサーバーから無効なレスポンスを受け取りました。
+        "503":
+          description: サービス利用不可。サービスが一時的に利用不可です。
