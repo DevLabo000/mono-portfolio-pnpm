@@ -1,3 +1,16 @@
 {
-  "recommendations": ["biomejs.biome"]
+  "recommendations": [
+    "biomejs.biome",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "mhutchie.git-graph",
+    "oderwat.indent-rainbow",
+    "ms-ceintl.vscode-language-pack-ja",
+    "pkief.material-icon-theme",
+    "esbenp.prettier-vscode",
+    "sakamoto66.vscode-paste-image",
+    "bradlc.vscode-tailwindcss",
+    "redhat.vscode-yaml",
+    "arjun.swagger-viewer"
+  ]
 }
