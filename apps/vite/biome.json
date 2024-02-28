@@ -1,0 +1,7 @@
+{
+  "extends": ["../../biome.json"],
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": ["./lib/swr-client/"]
+  }
+}
