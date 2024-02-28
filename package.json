@@ -4,6 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
+    "vite": "pnpm -F \"vite\"",
+    "hono": "pnpm -F \"hono\"",
     "dev": "turbo dev",
     "build": "turbo build",
     "fix": "biome check --apply ./",
@@ -11,7 +13,8 @@
   },
   "packageManager": "pnpm@8.15.3",
   "engines": {
-    "pnpm": ">=8.15.3"
+    "pnpm": ">=8.15.3",
+    "npm": "please_use_pnpm_instead"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
