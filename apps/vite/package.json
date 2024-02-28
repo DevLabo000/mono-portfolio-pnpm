@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "lint": "biome check --apply ./",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -26,7 +27,7 @@
     "vite-plugin-ssr": "0.4.142",
     "zod": "^3.22.4"
   },
-    "devDependencies": {
+  "devDependencies": {
     "@tanstack/router-devtools": "^1.16.6",
     "@tanstack/router-vite-plugin": "^1.16.5",
     "@types/react": "^18.2.56",
