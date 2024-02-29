@@ -2,6 +2,6 @@
   "extends": ["../../biome.json"],
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["./src/lib/swr-client/", "./dist/", "./src/routeTree.gen.ts"]
+    "ignore": ["./src/lib/swr-client/", "./dist/", "./src/routeTree.gen.ts", "./public/", "./src/components/ui/"]
   }
 }

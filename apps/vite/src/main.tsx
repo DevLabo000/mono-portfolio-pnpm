@@ -1,3 +1,4 @@
+import { MswProvider, ThemeProvider } from '@/context';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
@@ -7,7 +8,11 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <App />
+      <MswProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </MswProvider>
     </React.StrictMode>,
   );
 }
