@@ -5,14 +5,17 @@
  * ToDoアプリのAPI仕様書
  * OpenAPI spec version: 1.0.0
  */
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query';
 import type {
+  InfiniteData,
   MutationFunction,
   QueryFunction,
   QueryKey,
   UseMutationOptions,
-  UseQueryOptions,
-  UseQueryResult,
+  UseSuspenseInfiniteQueryOptions,
+  UseSuspenseInfiniteQueryResult,
+  UseSuspenseQueryOptions,
+  UseSuspenseQueryResult,
 } from '@tanstack/react-query';
 import axios from 'axios';
 import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
@@ -33,11 +36,11 @@ export const getGetTodosQueryKey = () => {
   return [`/todos`] as const;
 };
 
-export const getGetTodosQueryOptions = <
+export const getGetTodosSuspenseQueryOptions = <
   TData = Awaited<ReturnType<typeof getTodos>>,
   TError = AxiosError<void>,
 >(options?: {
-  query?: UseQueryOptions<Awaited<ReturnType<typeof getTodos>>, TError, TData>;
+  query?: Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getTodos>>, TError, TData>>;
   axios?: AxiosRequestConfig;
 }) => {
   const { query: queryOptions, axios: axiosOptions } = options ?? {};
@@ -47,26 +50,69 @@ export const getGetTodosQueryOptions = <
   const queryFn: QueryFunction<Awaited<ReturnType<typeof getTodos>>> = ({ signal }) =>
     getTodos({ signal, ...axiosOptions });
 
-  return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+  return { queryKey, queryFn, ...queryOptions } as UseSuspenseQueryOptions<
     Awaited<ReturnType<typeof getTodos>>,
     TError,
     TData
   > & { queryKey: QueryKey };
 };
 
-export type GetTodosQueryResult = NonNullable<Awaited<ReturnType<typeof getTodos>>>;
-export type GetTodosQueryError = AxiosError<void>;
+export type GetTodosSuspenseQueryResult = NonNullable<Awaited<ReturnType<typeof getTodos>>>;
+export type GetTodosSuspenseQueryError = AxiosError<void>;
 
 /**
  * @summary ToDo一覧を取得
  */
-export const useGetTodos = <TData = Awaited<ReturnType<typeof getTodos>>, TError = AxiosError<void>>(options?: {
-  query?: UseQueryOptions<Awaited<ReturnType<typeof getTodos>>, TError, TData>;
+export const useGetTodosSuspense = <TData = Awaited<ReturnType<typeof getTodos>>, TError = AxiosError<void>>(options?: {
+  query?: Partial<UseSuspenseQueryOptions<Awaited<ReturnType<typeof getTodos>>, TError, TData>>;
   axios?: AxiosRequestConfig;
-}): UseQueryResult<TData, TError> & { queryKey: QueryKey } => {
-  const queryOptions = getGetTodosQueryOptions(options);
+}): UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const queryOptions = getGetTodosSuspenseQueryOptions(options);
 
-  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+  const query = useSuspenseQuery(queryOptions) as UseSuspenseQueryResult<TData, TError> & { queryKey: QueryKey };
+
+  query.queryKey = queryOptions.queryKey;
+
+  return query;
+};
+
+export const getGetTodosSuspenseInfiniteQueryOptions = <
+  TData = InfiniteData<Awaited<ReturnType<typeof getTodos>>>,
+  TError = AxiosError<void>,
+>(options?: {
+  query?: Partial<UseSuspenseInfiniteQueryOptions<Awaited<ReturnType<typeof getTodos>>, TError, TData>>;
+  axios?: AxiosRequestConfig;
+}) => {
+  const { query: queryOptions, axios: axiosOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetTodosQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getTodos>>> = ({ signal }) =>
+    getTodos({ signal, ...axiosOptions });
+
+  return { queryKey, queryFn, ...queryOptions } as UseSuspenseInfiniteQueryOptions<
+    Awaited<ReturnType<typeof getTodos>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type GetTodosSuspenseInfiniteQueryResult = NonNullable<Awaited<ReturnType<typeof getTodos>>>;
+export type GetTodosSuspenseInfiniteQueryError = AxiosError<void>;
+
+/**
+ * @summary ToDo一覧を取得
+ */
+export const useGetTodosSuspenseInfinite = <
+  TData = InfiniteData<Awaited<ReturnType<typeof getTodos>>>,
+  TError = AxiosError<void>,
+>(options?: {
+  query?: Partial<UseSuspenseInfiniteQueryOptions<Awaited<ReturnType<typeof getTodos>>, TError, TData>>;
+  axios?: AxiosRequestConfig;
+}): UseSuspenseInfiniteQueryResult<TData, TError> & { queryKey: QueryKey } => {
+  const queryOptions = getGetTodosSuspenseInfiniteQueryOptions(options);
+
+  const query = useSuspenseInfiniteQuery(queryOptions) as UseSuspenseInfiniteQueryResult<TData, TError> & {
     queryKey: QueryKey;
   };
 

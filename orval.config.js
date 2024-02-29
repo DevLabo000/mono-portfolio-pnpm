@@ -23,7 +23,15 @@ module.exports = {
       client: 'react-query',
       clean: true,
       indexFiles: true,
-      prettier: true,
+      override: {
+        query: {
+          useQuery: false,
+          useInfinite: false,
+          useSuspenseQuery: true,
+          useSuspenseInfiniteQuery: true,
+          version: 5,
+        },
+      },
     },
     input: {
       target: './apps/document/api/open-api.yaml',
