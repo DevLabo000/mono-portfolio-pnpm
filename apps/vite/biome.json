@@ -2,6 +2,9 @@
   "extends": ["../../biome.json"],
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["./src/lib/swr-client/", "./dist/", "./src/routeTree.gen.ts", "./public/", "./src/components/ui/"]
+    "ignore": ["./dist/", "./src/routeTree.gen.ts", "./public/"]
+  },
+  "linter": {
+    "ignore": ["./src/lib/swr-client/", "./src/lib/tanctack-client/", "./src/components/ui/"]
   }
 }

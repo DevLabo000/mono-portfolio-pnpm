@@ -27,3 +27,5 @@ pnpm run dev
 ```sh
 pnpm run build
 ```
+
+pnpm dlx shadcn-ui@latest add dropdown-menu
