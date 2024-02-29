@@ -6,7 +6,7 @@
   "scripts": {
     "vite": "pnpm -F \"vite\"",
     "hono": "pnpm -F \"hono\"",
-    "vitepress": "pnpm -F \"vitepress\"",
+    "document": "pnpm -F \"document\"",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "build": "turbo build",

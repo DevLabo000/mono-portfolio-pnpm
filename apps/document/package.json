@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "vitepress dev --port 3001",
+    "dev": "npx @redocly/cli build-docs ./api/open-api.yaml -o index.html && vitepress dev --port 3001",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "redoc-cli": "0.13.21",
+    "swagger-ui": "5.11.8"
+  }
 }
