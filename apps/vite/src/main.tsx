@@ -8,11 +8,11 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
-      <MswProvider>
-        <ThemeProvider>
+      <ThemeProvider>
+        <MswProvider>
           <App />
-        </ThemeProvider>
-      </MswProvider>
+        </MswProvider>
+      </ThemeProvider>
     </React.StrictMode>,
   );
 }
