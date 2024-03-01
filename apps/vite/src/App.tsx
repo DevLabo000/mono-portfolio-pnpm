@@ -13,12 +13,7 @@ declare module '@tanstack/react-router' {
 }
 
 function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-      <span className='text-3xl font-bold underline text-blue-100'>Hello world!</span>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
