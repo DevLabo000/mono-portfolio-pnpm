@@ -10,7 +10,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "build": "turbo build",
-    "orval": "orval --config ./orval.config.js && turbo lint"
+    "orval": "orval --config ./orval.config.js"
   },
   "packageManager": "pnpm@8.15.3",
   "engines": {

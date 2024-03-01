@@ -6,7 +6,7 @@
  * OpenAPI spec version: 1.0.0
  */
 import { faker } from '@faker-js/faker';
-import { http, HttpResponse, delay } from 'msw';
+import { HttpResponse, delay, http } from 'msw';
 import type { GetTodos200Item } from '.././models';
 
 export const getGetTodosResponseMock = (overrideResponse: any = {}): GetTodos200Item[] =>
