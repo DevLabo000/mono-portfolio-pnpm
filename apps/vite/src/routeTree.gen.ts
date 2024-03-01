@@ -13,18 +13,24 @@ import { createFileRoute } from '@tanstack/react-router';
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root';
+import { Route as TodoRouteImport } from './routes/todo/route';
+import { Route as LoginRouteImport } from './routes/login/route';
 
 // Create Virtual Routes
 
-const AboutLazyImport = createFileRoute('/about')();
 const IndexLazyImport = createFileRoute('/')();
 
 // Create/Update Routes
 
-const AboutLazyRoute = AboutLazyImport.update({
-  path: '/about',
+const TodoRouteRoute = TodoRouteImport.update({
+  path: '/todo',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route));
+} as any);
+
+const LoginRouteRoute = LoginRouteImport.update({
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any);
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
@@ -39,8 +45,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport;
       parentRoute: typeof rootRoute;
     };
-    '/about': {
-      preLoaderRoute: typeof AboutLazyImport;
+    '/login': {
+      preLoaderRoute: typeof LoginRouteImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/todo': {
+      preLoaderRoute: typeof TodoRouteImport;
       parentRoute: typeof rootRoute;
     };
   }
@@ -48,6 +58,6 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexLazyRoute, AboutLazyRoute]);
+export const routeTree = rootRoute.addChildren([IndexLazyRoute, LoginRouteRoute, TodoRouteRoute]);
 
 /* prettier-ignore-end */
