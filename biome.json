@@ -5,22 +5,17 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["./apps/hono/.wrangler"]
+    "ignore": []
   },
   "linter": {
-    "ignore": ["./apps/hono/.wrangler"],
+    "ignore": [],
     "enabled": true,
     "rules": {
-      "recommended": true,
-      "correctness": {
-        "noUndeclaredVariables": "error",
-        "noUnusedVariables": "error",
-        "useHookAtTopLevel": "error"
-      }
+      "all": true
     }
   },
   "formatter": {
-    "ignore": ["./apps/hono/.wrangler"],
+    "ignore": [],
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,

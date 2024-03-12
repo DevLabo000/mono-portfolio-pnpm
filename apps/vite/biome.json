@@ -1,7 +1,6 @@
 {
   "extends": ["../../biome.json"],
   "files": {
-    "ignoreUnknown": true,
     "ignore": ["./dist/", "./src/routeTree.gen.ts", "./public/", "./src/components/ui/"]
   },
   "linter": {
