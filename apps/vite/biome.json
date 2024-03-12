@@ -4,6 +4,12 @@
     "ignore": ["./dist/", "./src/routeTree.gen.ts", "./public/", "./src/components/ui/"]
   },
   "linter": {
-    "ignore": ["./src/lib/swr-client/", "./src/lib/tanctack-client/"]
+    "ignore": [
+      "./src/lib/swr-client/",
+      "./src/lib/tanctack-client/",
+      "postcss.config.js",
+      "vite.config.ts",
+      "tailwind.config.js"
+    ]
   }
 }

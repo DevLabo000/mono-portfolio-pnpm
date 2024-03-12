@@ -1,12 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { PostTodosBody, usePostTodos } from '@/lib/tanctack-client';
+import { type PostTodosBody, usePostTodos } from '@/lib/tanctack-client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { todoFormSchema } from '../../-schema';
-import { TodoFormType } from '../../-types';
+import type { TodoFormType } from '../../-types';
 
 /**
  * Todoフォームコンポーネント
@@ -28,7 +28,9 @@ export function TodoForm() {
    * @returns
    */
   const onSubmit = async (data: TodoFormType) => {
-    if (!data) return;
+    if (!data) {
+      return;
+    }
     const postData: PostTodosBody = {
       ...data,
       date: null,
@@ -65,5 +67,3 @@ export function TodoForm() {
     </Form>
   );
 }
-
-export default TodoForm;

@@ -20,5 +20,3 @@ export function TodoPresenter() {
     </div>
   );
 }
-
-export default TodoPresenter;

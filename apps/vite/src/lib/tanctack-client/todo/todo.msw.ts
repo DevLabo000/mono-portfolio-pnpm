@@ -7,7 +7,7 @@
  * @ts-nocheck
  */
 import { faker } from '@faker-js/faker';
-import { HttpResponse, delay, http } from 'msw';
+import { http, HttpResponse, delay } from 'msw';
 import type { GetTodos200Item } from '.././models';
 
 export const getGetTodosResponseMock = (overrideResponse: any = {}): GetTodos200Item[] =>

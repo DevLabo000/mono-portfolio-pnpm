@@ -1,5 +1,5 @@
-import { z } from 'zod';
-import { todoFormSchema } from '../-schema';
+import type { z } from 'zod';
+import type { todoFormSchema } from '../-schema';
 
 /**
  * TODO FORM TYPE定義

@@ -1,5 +1,5 @@
 import { useTheme } from '@/context/ThemeProvider';
-import React from 'react';
+import type React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,11 +14,11 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
-        closeOnClick
+        closeOnClick={true}
         rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
+        pauseOnFocusLoss={true}
+        draggable={true}
+        pauseOnHover={true}
         theme={theme}
       />
       {children}

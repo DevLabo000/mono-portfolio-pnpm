@@ -26,5 +26,3 @@ export function TodoCard() {
     <>データがありません。</>
   );
 }
-
-export default TodoCard;

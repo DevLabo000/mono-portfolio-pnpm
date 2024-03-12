@@ -1,4 +1,4 @@
-import { GetTodos200Item, usePatchTodosId } from '@/lib/tanctack-client';
+import { type GetTodos200Item, usePatchTodosId } from '@/lib/tanctack-client';
 import { toast } from 'react-toastify';
 
 type NiceButtonProps = {
