@@ -1,4 +1,4 @@
-import { MswProvider, ThemeProvider } from '@/context';
+import { MswProvider, ThemeProvider, ToastProvider } from '@/context';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
@@ -9,9 +9,11 @@ if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <ThemeProvider>
-        <MswProvider>
-          <App />
-        </MswProvider>
+        <ToastProvider>
+          <MswProvider>
+            <App />
+          </MswProvider>
+        </ToastProvider>
       </ThemeProvider>
     </React.StrictMode>,
   );
