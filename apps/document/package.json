@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "npx @redocly/cli build-docs ./api/open-api.yaml -o index.html && vitepress dev --port 3001",
-    "build": "vitepress build",
+    "test:build": "vitepress build",
     "preview": "vitepress preview"
   },
   "keywords": [],
